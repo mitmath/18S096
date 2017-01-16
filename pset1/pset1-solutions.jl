@@ -239,7 +239,7 @@ immutable Sphere{T<:AbstractFloat}
 end
 function Sphere{T<:Real,S<:Real}(center::AbstractVector{T}, radius::S, i::Integer)
     R = float(promote_type(T, S))
-    return Sphere{R}(SVector{3,R}(center), R(radius), Int(i))
+    return Sphere{R}(SVector{3,R}(center), R(radius)^2, Int(i))
 end
 
 type KDTree{T<:Real}
@@ -297,7 +297,7 @@ function KDTree{T}(o::AbstractVector{Sphere{T}})
     return KDTree{T}(x, ix, KDTree(ol), KDTree(or))
 end
 
-makespheres_{T<:Real}(data::AbstractMatrix{T}) = [Sphere(data[i,1:3], data[i,4]^2, i) for i = 1:size(data,1)]
+makespheres_{T<:Real}(data::AbstractMatrix{T}) = [Sphere(data[i,1:3], data[i,4], i) for i = 1:size(data,1)]
 makespheres{T<:Real}(data::AbstractMatrix{T}) = KDTree(makespheres_(data))
 
 depth(kd::KDTree) = kd.ix == 0 ? 0 : max(depth(kd.left), depth(kd.right)) + 1
