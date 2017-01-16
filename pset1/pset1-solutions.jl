@@ -82,6 +82,7 @@ circshift_buf2!{T}(a::AbstractVector{T}, s::Int) = circshift_buf2!(a, Array{T}(l
 
 function circularshift!(X::AbstractVector, s::Int)
     n = length(X)
+    n == 0 && return X
     s = mod(s, n)
     s == 0 && return X
     if n <= 100
@@ -99,7 +100,7 @@ end
 
 # convert `s` to an `Int`, to prevent both type instabilities and
 # bad performance if someone is perverse and passes, say, a `BigInt`.
-circularshift(X::AbstractVector, s::Integer) = circularshift(X, Int(s))
+circularshift!(X::AbstractVector, s::Integer) = circularshift!(X, Int(s))
 
 ########################################################################
 # problem 1(b)
@@ -129,6 +130,7 @@ end
 # duplication with some better abstractions here.)
 function circshift_perm2!{T}(X::AbstractMatrix{T}, s::Int)
     n = size(X,2)
+    n == 0 && return X
     s = mod(s, n)
     s == 0 && return X
     B = BitVector(s)
