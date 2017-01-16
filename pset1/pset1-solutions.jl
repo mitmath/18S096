@@ -69,7 +69,6 @@ function circshift_buf1!{T}(a::AbstractVector{T}, buf::AbstractVector{T})
 end
 circshift_buf1!{T}(a::AbstractVector{T}, s::Int) = circshift_buf1!(a, Array{T}(s))
 
-
 function circshift_buf2!{T}(a::AbstractVector{T}, buf::AbstractVector{T})
     n = length(a)
     s′ = length(buf)
@@ -101,7 +100,6 @@ end
 # convert `s` to an `Int`, to prevent both type instabilities and
 # bad performance if someone is perverse and passes, say, a `BigInt`.
 circularshift(X::AbstractVector, s::Integer) = circularshift(X, Int(s))
-
 
 ########################################################################
 # problem 1(b)
@@ -221,7 +219,7 @@ end
 
 circularshift!(X::AbstractMatrix) = circshift_bybatch!(X, size(X,1))
 
-
+########################################################################
 ########################################################################
 # problem 2
 
