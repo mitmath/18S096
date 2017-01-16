@@ -238,7 +238,7 @@ Sphere{T}(center::AbstractVector{T}, radius::T, i::Integer) = Sphere{T}(SVector{
 type KDTree{T<:Real}
     o::Vector{Sphere{T}}
     ix::Int # dimension being sliced (1 to 3, or 0 for leaf nodes)
-    x::T    # the coordinate of the slice plane
+    x::Float64    # the coordinate of the slice plane
     left::KDTree  # objects ≤ x in coordinate ix
     right::KDTree # objects > x in coordinate ix
     KDTree(o::Vector{Sphere{T}}) = new(o, 0)
