@@ -229,13 +229,18 @@ using StaticArrays
 
 # since we store the spheres in a tree, we also need to keep track of the index
 # with which that sphere appeared in the original data, so that we can still return
-# that index from findsphere
-immutable Sphere{T<:Real}
+# that index from findsphere.  We also convert to a floating-point type, since
+# otherwise the radius^2 computation can easily overflow.  (Note that initial "slow"
+# solution converted to floating-point in the norm computations anyway.)
+immutable Sphere{T<:AbstractFloat}
     center::SVector{3,T}
     radius2::T # the radius^2
     index::Int # index (row) of this sphere in the original data
 end
-Sphere{T}(center::AbstractVector{T}, radius::T, i::Integer) = Sphere{T}(SVector{3,T}(center), radius, Int(i))
+function Sphere{T<:Real,S<:Real}(center::AbstractVector{T}, radius::S, i::Integer)
+    R = float(promote_type(T, S))
+    return Sphere{R}(SVector{3,R}(center), R(radius), Int(i))
+end
 
 type KDTree{T<:Real}
     o::Vector{Sphere{T}}
