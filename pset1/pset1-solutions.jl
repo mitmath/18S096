@@ -277,7 +277,7 @@ function KDTree{T}(o::AbstractVector{Sphere{T}})
     end
 
     # don't bother subdividing if it doesn't reduce the # of objects much
-    4*min(nl,nr) > 3*length(o) && return KDTree{T}(o)
+    4*max(nl,nr) > 3*length(o) && return KDTree{T}(o)
 
     # create the arrays of objects in each subtree
     ol = Array{Sphere{T}}(nl)
