@@ -256,7 +256,7 @@ type KDTree{T<:Real}
 end
 
 function KDTree{T}(o::AbstractVector{Sphere{T}})
-    length(o) <= 4 && return KDTree{T}(o)
+    length(o) <= 8 && return KDTree{T}(o)
 
     # figure out the best dimension ix to divide over,
     # the dividing plane x, and the number (nl,nr) of
