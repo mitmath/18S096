@@ -90,10 +90,6 @@ function correctness_tests(mod)
     try
         for test in collect(zip(shifts, testNms))
             (shift, tname) = test
-            (e, sec_elapsed, bytes_alloc, secg) = @timed mod.circularshift!(v, shift)
-            if (bytes_alloc > (128 + sizeof(v)/8.0))
-                # do nothing, bogus measurement
-            end
             @assert circularshift_test(copy(v), shift) == mod.circularshift!(v, shift)
             @printf "  %-25s | PASSED\n" tname
         end
@@ -111,7 +107,7 @@ function correctness_tests(mod)
             for s in shifts
                 @assert circularshift_test(copy(v), s) == mod.circularshift!(v, s)
             end
-            (expr_val, sec_elapsed, bytes_alloc, sec_in_gc) = @timed mod.circularshift!(v, shifts[end])
+            bytes_alloc = @allocated mod.circularshift!(v, shifts[end])
             if (bytes_alloc > (128 + sizeof(v)/8.0))
                 overMemory = true
                 @assert (bytes_alloc < (128 + sizeof(v)/8.0))
@@ -134,7 +130,7 @@ function correctness_tests(mod)
         @assert circularshift_test!(copy(A), 8) == mod.circularshift!(copy(A), 8)
         @printf "  %-25s | PASSED\n" tname
     catch e
-        @printf "  %-25s | PASSED\n" tname
+        @printf "  %-25s | FAILED\n" tname
     end
     tname = "cols >> rows"
     try 
@@ -204,21 +200,14 @@ function benchmark_tests(mod, s::studentSubmission)
         shifts = [5, round(Int64, size/4)]
         for sh in shifts
             elapsed = @elapsed mod.circularshift!(typeArray1D, sh)
-            #trial = @benchmark mod.circularshift!(typeArray1D, sh)
-            #elapsed = minimum(trial.times)
             push!(s.bmA, elapsed)
 
             sizeCombinations = [(size2D, smSz), (smSz, size2D), (size, size2D)]
             for dimComb in sizeCombinations
                 typeArray2D = Array{dType}(dimComb)
                 elapsed = @elapsed mod.circularshift!(typeArray2D, sh)
-                #trial = @benchmark mod.circularshift!(typeArray2D, sh)
-                #elapsed = minimum(trial.times)
                 push!(s.bmB, elapsed)
-
                 elapsed = @elapsed mod.circularshift!(typeArray2D)
-                #trial = @benchmark mod.circularshift!(typeArray2D)
-                #elapsed = minimum(trial.times)
                 push!(s.bmC, elapsed)
             end
         end
