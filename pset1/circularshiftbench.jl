@@ -130,7 +130,7 @@ function correctness_tests(mod)
         @assert circularshift_test!(copy(A), 8) == mod.circularshift!(copy(A), 8)
         @printf "  %-25s | PASSED\n" tname
     catch e
-        @printf "  %-25s | PASSED\n" tname
+        @printf "  %-25s | FAILED\n" tname
     end
     tname = "cols >> rows"
     try 
