@@ -193,8 +193,6 @@ function get_normed_scores(scores)
 
     # rows: student, cols: tests
     scoreTable = hcat(scores...)' 
-    display(scoreTable)
-    println("")
     normalized = zeros(scoreTable)
     (nCompetitors, nTests) = size(scoreTable)
     for j = 1:nTests
