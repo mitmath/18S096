@@ -150,7 +150,8 @@ function benchmark_submission!(s::studentSubmission, mod)
     for len in lengths
         for tx in testx
             a = rand(-10:10, len)
-            cf_student(x) = @eval $(mod).@cf $(x) $(a...)
+            cf_student = gensym()
+            @eval $cf_student(x) = $(mod).@cf x $(a...)
             bm = @benchtime $cf_student($tx)
             push!(s.bmP1,bm)
         end 
@@ -158,7 +159,8 @@ function benchmark_submission!(s::studentSubmission, mod)
     const a1 = 5
     const a2 = 7
     a = [a1, a2]
-    cf_student(x) = @eval $(mod).@cf $(x) $(a...)
+    cf_student = gensym()
+    @eval $cf_student(x) = $(mod).@cf x $(a...)
     bm = @benchtime $cf_student($a1)
     push!(s.bmP1,bm)
     @printf "done.\n"
@@ -191,6 +193,8 @@ function get_normed_scores(scores)
 
     # rows: student, cols: tests
     scoreTable = hcat(scores...)' 
+    display(scoreTable)
+    println("")
     normalized = zeros(scoreTable)
     (nCompetitors, nTests) = size(scoreTable)
     for j = 1:nTests
