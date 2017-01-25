@@ -243,7 +243,7 @@ function main()
     @printf "%-17s     1        2       3\n" "problem:"
     println("---------------------------------------------")
     for (idx, student) in enumerate(contestStudents)
-        @printf "%-17s %4f %4f %4f \n" student.id scoresP1[idx] scoresP1[idx] scoresP3[idx]
+        @printf "%-17s %4f %4f %4f \n" student.id scoresP1[idx] scoresP2[idx] scoresP3[idx]
     end
 
 end
