@@ -12,3 +12,5 @@ This is the repository for course materials of the class [18.S096 at MIT in 2017
 * Lecture 7:	Parallel Computing: [big picture](lecture7/The+Big+Picture+of+Parallel+Computing.ipynb) and [MPI](lecture7/2.%252520Using%252520MPI%252520from%252520Julia.ipynb) (AE)
 * Lecture 8:	[Automatic Differentiation](lecture8/Automatic%20differentiation%20and%20applications.ipynb) and [Interval Arithmetic](lecture8/Interval%20arithmetic.ipynb) (DS)
 * Lecture 9:	Visualization and 3D Rendering with [GLVisualize](https://github.com/JuliaGL/GLVisualize.jl) (SD)
+
+These lecture notes are free/open-source under the [MIT/expat license](LICENSE.md).
