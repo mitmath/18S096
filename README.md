@@ -4,6 +4,6 @@
 
 This is the repository for course materials of the class [18.S096 at MIT in 2018](http://math.mit.edu/academics/iap.php), including problem sets and lecture materials.   Lectures by Steven G. Johnson (SGJ), Alan Edelman (AE), and others.
 
-* Lecture 1: [course overview](lectures/lecture1/Course-overview.pdf), [boxes and registers](lectures/lecture1/Boxes-and-registers.ipynb)
+* Lecture 1: [course overview](lectures/lecture1/Course-overview.pdf), [performance variation](lectures/lecture1/Performance-variation.ipynb), [boxes and registers](lectures/lecture1/Boxes-and-registers.ipynb)
 
 These materials are free/open-source under the [MIT/expat license](LICENSE.md).
