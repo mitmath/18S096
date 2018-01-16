@@ -9,4 +9,8 @@ This is the repository for course materials of the class [18.S096 at MIT in 2018
 * Lecture 2: [code specialization](lectures/lecture2/Code-specialization.ipynb), [array concepts](lectures/lecture2/Getting%20started,%20working%20with%20matrices.ipynb)
     - also [pset 1](psets/pset1.ipynb), due next Monday night.
 
+* Lecture 3: [type stability](lectures/lecture3/Type-stability.ipynb)
+
+* Lecture 4: vectorization (see the ["More Dots" blog post](https://julialang.org/blog/2017/01/moredots) and the [vectorization notebook](lectures/lecture4/Vectorization.ipynb)); memory and locality (see [slides](lectures/lecture4/memory.pdf) and [notebook](lectures/lecture4/memory-matrices.ipynb))
+
 These materials are free/open-source under the [MIT/expat license](LICENSE.md).
