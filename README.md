@@ -13,4 +13,6 @@ This is the repository for course materials of the class [18.S096 at MIT in 2018
 
 * Lecture 4: vectorization (see the ["More Dots" blog post](https://julialang.org/blog/2017/01/moredots) and the [vectorization notebook](lectures/lecture4/Vectorization.ipynb)); memory and locality (see [slides](lectures/lecture4/memory.pdf) and [notebook](lectures/lecture4/memory-matrices.ipynb))
 
+* Lecture 5: [parallelism notebook](lectures/lecture5/Parallelism.ipynb)) (Valentin Churavy)
+
 These materials are free/open-source under the [MIT/expat license](LICENSE.md).
