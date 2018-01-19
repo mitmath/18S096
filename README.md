@@ -18,5 +18,6 @@ This is the repository for course materials of the class [18.S096 at MIT in 2018
 * Lecture 5: [parallelism notebook](lectures/lecture5/Parallelism.ipynb) (Valentin Churavy)
 
 * Lab 2: [in-place transposition exercise](lectures/other/Transposition.ipynb)
+    - also [pset 2](psets/pset2.ipynb), due next Wednesday.
 
 These materials are free/open-source under the [MIT/expat license](LICENSE.md).
