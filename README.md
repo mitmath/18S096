@@ -19,5 +19,9 @@ This is the repository for course materials of the class [18.S096 at MIT in 2018
 
 * Lab 2: [in-place transposition exercise](lectures/other/Transposition.ipynb)
     - also [pset 2](psets/pset2.ipynb), due next Wednesday.
+    
+* Lecture 6: [types and dispatch](lectures/lecture6/Types%20and%20Dispatch.ipynb) (Jeff Bezanson)
+
+* Lecture 7: [metaprogramming](lectures/lecture7/Metaprogramming.ipynb) (Jeff Bezanson)
 
 These materials are free/open-source under the [MIT/expat license](LICENSE.md).
