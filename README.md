@@ -24,4 +24,10 @@ This is the repository for course materials of the class [18.S096 at MIT in 2018
 
 * Lecture 7: [metaprogramming](lectures/lecture7/Metaprogramming.ipynb) (Jeff Bezanson)
 
+* Lecture 8: Automatic Differentiation
+
+* Lecture 9: Choice of Labs
+
+* Lecture 10: Parallel Prefix
+
 These materials are free/open-source under the [MIT/expat license](LICENSE.md).
