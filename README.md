@@ -6,6 +6,8 @@ This is the repository for course materials of the class [18.S096 at MIT in 2018
 
 * Lecture 1: [course overview](lectures/lecture1/Course-overview.pdf), [performance variation](lectures/lecture1/Performance-variation.ipynb), [boxes and registers](lectures/lecture1/Boxes-and-registers.ipynb)
 
+  - See also [this video lecture for 6.172 at MIT](https://www.youtube.com/watch?v=6JcMuFgnA6U), which covered similar material.
+
 * Lecture 2: [code specialization](lectures/lecture2/Code-specialization.ipynb), [array concepts](lectures/lecture2/Getting%20started,%20working%20with%20matrices.ipynb)
     - also [pset 1](psets/pset1.ipynb), due next Monday night.
 
